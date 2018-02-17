@@ -4,22 +4,42 @@
     <title>Hello, WebVR! - A-Frame</title>
     <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@^0.5.0/dist/aframe-text-geometry-component.min.js"></script>
   </head>
   <body>
     <a-scene>
-      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
-      <a-sphere position="0 1 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-assets>
+        <a-asset-item id="optimerBoldFont" src="https://rawgit.com/mrdoob/three.js/dev/examples/fonts/optimer_bold.typeface.json"></a-asset-item>
+    <img id="sky" src="https://cdn.glitch.com/94e4932d-59a8-4046-8baf-70bd6332e026%2Fearth.png?1518901840129"  />
+        <img id="background" src="https://cdn.glitch.com/94e4932d-59a8-4046-8baf-70bd6332e026%2Fbackground.jpg?1518901804354">
+  </a-assets>
+      <a-sky src="#sky"></a-sky>
+      <a-box src="https://lh3.googleusercontent.com/creeJ3jUeJMAXXGWB6_BTohLTlBCteYQrZwm_1lZDgr__pJAm-bHM_ya2D797wW_VfQ=w300" position="5 4 -10" rotation="0 0 0"
+    scale="2 2 2">
+        <a-animation attribute="position" from="-5 1 1" to="-5 4 -8" dur="2000" repeat="indefinite" direction="alternate"></a-animation></a-box>
+      
+      
+<!--      <a-text value="Hack @CEWIT 2018" position="0 4 -11" color="FF0000" ></a-text> -->
+    <a-entity text-geometry="value: Hack @CEWIT 2018; font: #optimerBoldFont"></a-entity>
+
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow
+             ></a-box>
+      <a-sphere position="0 1 -5" radius="1.25" color="#EF2D5E" shadow>
+        <a-ring position="2 2 -7"></a-ring>
+      </a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
-      
-      <a-sky color="#6EBAA7" src="tatooine"></a-sky>
+    
       
       <a-entity id="fading-cube" geometry="primitive: box" material="opacity: 1" position="-1 1 -4" color="#776600">
           <a-animation attribute="material.opacity" begin="fade" to="0" dur="1000"></a-animation>
       </a-entity>
-      <a-entity>
-        <a-animation attribute="position" from="1 1 1" to="2 4 -8"></a-animation>
-      </a-entity>
+      <a-box src="https://img.buzzfeed.com/buzzfeed-static/static/enhanced/webdr05/2013/7/25/15/original-grid-image-9356-1374779702-42.jpg?crop=238:238;31,0&downsize=715:*&output-format=auto&output-quality=auto">
+        <a-animation attribute="position" from="1 1 1" to="2 4 -8" dur="2000" repeat="indefinite" direction="alternate"></a-animation>
+      </a-box>
+     <a-light type="directional" color="#973" intensity="2.0" position="-1 2 1"></a-light>
+     <a-light type="ambient" color="#973" intensity="3.0" position="0 0 0"></a-light> 
+
     </a-scene>
   </body>
 </html>
